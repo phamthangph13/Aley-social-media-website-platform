@@ -1,0 +1,107 @@
+/* Post Options styles */
+.post-options {
+    position: relative;
+    cursor: pointer;
+}
+
+.post-options i {
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.post-options i:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.post-options-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow: hidden;
+    display: none;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    margin-top: 5px;
+}
+
+.post-options-dropdown.active {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    animation: fadeInDropdown 0.2s ease forwards;
+}
+
+@keyframes fadeInDropdown {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.option-item {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.option-item:hover {
+    background-color: #f5f5f5;
+}
+
+.option-item i {
+    margin-right: 12px;
+    width: 22px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.option-item span {
+    font-size: 14px;
+}
+
+/* Styling for different option types */
+.edit-post i {
+    color: #3498db;
+}
+
+.delete-post i {
+    color: #e74c3c;
+}
+
+.privacy-settings i {
+    color: #9b59b6;
+}
+
+.report-post i {
+    color: #e74c3c;
+}
+
+.hide-post i {
+    color: #7f8c8d;
+}
+
+.save-post i {
+    color: #f39c12;
+}
+
+.loading-options {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.post-hidden {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+} 

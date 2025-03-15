@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aley - Cài đặt</title>
+    <link rel="stylesheet" href="Styles/global.css">
+    <link rel="stylesheet" href="Styles/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Thanh điều hướng - sẽ được load từ sidebar-menu.html -->
+        <div class="sidebar-container"></div>
+
+        <!-- Phần nội dung chính -->
+        <main class="main-content">
+            <!-- Settings Header -->
+            <div class="settings-header">
+                <h1>Cài đặt</h1>
+                <p>Quản lý tài khoản và tùy chọn của bạn</p>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="settings-content">
+                <!-- Notification Settings -->
+                <div class="settings-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-bell"></i> Cài đặt thông báo</h2>
+                        <p>Quản lý các thông báo và cập nhật</p>
+                    </div>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Thông báo bài viết mới</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Thông báo bình luận</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Thông báo lượt thích</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Thông báo người theo dõi mới</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Thông báo tin nhắn mới</span>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button class="primary-btn">
+                                <i class="fas fa-save"></i>
+                                <span>Lưu cài đặt thông báo</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Appearance Settings -->
+                <div class="settings-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-paint-brush"></i> Cài đặt giao diện</h2>
+                        <p>Tùy chỉnh giao diện và chủ đề</p>
+                    </div>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label>Chủ đề</label>
+                            <select>
+                                <option value="light">Sáng</option>
+                                <option value="dark">Tối</option>
+                                <option value="system">Theo hệ thống</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Cỡ chữ</label>
+                            <select>
+                                <option value="small">Nhỏ</option>
+                                <option value="medium" selected>Vừa</option>
+                                <option value="large">Lớn</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Hiển thị ảnh hồ sơ tròn</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Hiệu ứng chuyển động</span>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button class="primary-btn">
+                                <i class="fas fa-save"></i>
+                                <span>Lưu cài đặt giao diện</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language Settings -->
+                <div class="settings-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-globe"></i> Cài đặt ngôn ngữ</h2>
+                        <p>Chọn ngôn ngữ hiển thị</p>
+                    </div>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label>Ngôn ngữ</label>
+                            <select>
+                                <option value="vi" selected>Tiếng Việt</option>
+                                <option value="en">English</option>
+                                <option value="ja">日本語</option>
+                                <option value="ko">한국어</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Định dạng ngày giờ</label>
+                            <select>
+                                <option value="vi" selected>Việt Nam</option>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button class="primary-btn">
+                                <i class="fas fa-save"></i>
+                                <span>Lưu cài đặt ngôn ngữ</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Settings -->
+                <div class="settings-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-user-cog"></i> Tài khoản</h2>
+                        <p>Quản lý tài khoản của bạn</p>
+                    </div>
+                    <div class="settings-form">
+                        <div class="form-actions">
+                            <button id="logout-btn" class="danger-btn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Đăng xuất</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal-overlay" id="logout-modal-overlay">
+        <div class="modal-sheet">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-sign-out-alt"></i> Xác nhận đăng xuất</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn đăng xuất khỏi tài khoản?</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancel-logout" class="secondary-btn">
+                        <i class="fas fa-times"></i>
+                        <span>Hủy bỏ</span>
+                    </button>
+                    <button id="confirm-logout" class="danger-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Đăng xuất</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="../Scripts/api-service.js"></script>
+    <script src="../Scripts/auth-guard.js"></script>
+    <script src="../Scripts/sidebar-loader.js"></script>
+    <script src="../Scripts/page-transition.js"></script>
+    <script src="../Scripts/settings.js"></script>
+</body>
+</html> 

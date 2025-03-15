@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aley - Tin nhắn</title>
+    <link rel="stylesheet" href="Styles/global.css">
+    <link rel="stylesheet" href="Styles/messages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Thanh điều hướng - sẽ được load từ sidebar-menu.html -->
+        <div class="sidebar-container"></div>
+
+        <!-- Phần nội dung chính -->
+        <main class="main-content">
+            <div class="messages-layout">
+                <!-- Phần danh sách cuộc trò chuyện -->
+                <div class="conversations-container">
+                    <div class="conversations-header">
+                        <h1>Tin nhắn</h1>
+                        <div class="conversations-actions">
+                            <button class="action-btn" title="Tạo cuộc trò chuyện mới">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn" title="Cài đặt tin nhắn">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-input">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Tìm kiếm tin nhắn...">
+                        </div>
+                    </div>
+
+                    <div class="conversations-filter">
+                        <button class="filter-btn active" data-filter="all">Tất cả</button>
+                        <button class="filter-btn" data-filter="unread">Chưa đọc</button>
+                        <button class="filter-btn" data-filter="groups">Nhóm</button>
+                    </div>
+
+                    <div class="conversations-list">
+                        <!-- Cuộc trò chuyện 1 - Đang hoạt động -->
+                        <div class="conversation-card active" data-conversation="conv1">
+                            <div class="conversation-avatar">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                                <span class="online-status"></span>
+                            </div>
+                            <div class="conversation-content">
+                                <div class="conversation-info">
+                                    <h3>Trần Thị B</h3>
+                                    <span class="last-time">12:30</span>
+                                </div>
+                                <div class="conversation-last-message">
+                                    <p>Chúc bạn một ngày tốt lành! 😊</p>
+                                    <div class="message-indicators">
+                                        <span class="unread-badge">1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuộc trò chuyện 2 -->
+                        <div class="conversation-card" data-conversation="conv2">
+                            <div class="conversation-avatar">
+                                <img src="https://i.pravatar.cc/150?img=68" alt="Avatar">
+                                <span class="offline-status"></span>
+                            </div>
+                            <div class="conversation-content">
+                                <div class="conversation-info">
+                                    <h3>Lê Văn C</h3>
+                                    <span class="last-time">Hôm qua</span>
+                                </div>
+                                <div class="conversation-last-message">
+                                    <p>Bạn đã xem qua dự án mới chưa?</p>
+                                    <div class="message-indicators">
+                                        <span class="unread-badge">2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuộc trò chuyện 3 -->
+                        <div class="conversation-card" data-conversation="conv3">
+                            <div class="conversation-avatar group-avatar">
+                                <img src="https://i.pravatar.cc/150?img=23" alt="Avatar">
+                                <img src="https://i.pravatar.cc/150?img=42" alt="Avatar">
+                            </div>
+                            <div class="conversation-content">
+                                <div class="conversation-info">
+                                    <h3>Nhóm dự án Aley</h3>
+                                    <span class="last-time">T2</span>
+                                </div>
+                                <div class="conversation-last-message">
+                                    <p><strong>Phạm Thị D:</strong> Họp lúc 2h chiều nhé mọi người!</p>
+                                    <div class="message-indicators">
+                                        <span class="read-status">
+                                            <i class="fas fa-check-double"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuộc trò chuyện 4 -->
+                        <div class="conversation-card" data-conversation="conv4">
+                            <div class="conversation-avatar">
+                                <img src="https://i.pravatar.cc/150?img=55" alt="Avatar">
+                                <span class="online-status"></span>
+                            </div>
+                            <div class="conversation-content">
+                                <div class="conversation-info">
+                                    <h3>Nguyễn Văn F</h3>
+                                    <span class="last-time">T3</span>
+                                </div>
+                                <div class="conversation-last-message">
+                                    <p>Cảm ơn bạn về những lời khuyên!</p>
+                                    <div class="message-indicators">
+                                        <span class="read-status">
+                                            <i class="fas fa-check-double"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuộc trò chuyện 5 -->
+                        <div class="conversation-card" data-conversation="conv5">
+                            <div class="conversation-avatar">
+                                <img src="https://i.pravatar.cc/150?img=42" alt="Avatar">
+                                <span class="offline-status"></span>
+                            </div>
+                            <div class="conversation-content">
+                                <div class="conversation-info">
+                                    <h3>Hoàng Văn E</h3>
+                                    <span class="last-time">25/05</span>
+                                </div>
+                                <div class="conversation-last-message">
+                                    <p>Đã gửi file cho bạn rồi nhé!</p>
+                                    <div class="message-indicators">
+                                        <span class="read-status">
+                                            <i class="fas fa-check-double"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phần nội dung tin nhắn -->
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <div class="chat-contact-info">
+                            <div class="chat-back-btn">
+                                <i class="fas fa-arrow-left"></i>
+                            </div>
+                            <div class="chat-avatar">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                                <span class="online-status"></span>
+                            </div>
+                            <div class="chat-name">
+                                <h3>Trần Thị B</h3>
+                                <span class="status-text">Đang hoạt động</span>
+                            </div>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="action-btn" title="Gọi thoại">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                            <button class="action-btn" title="Gọi video">
+                                <i class="fas fa-video"></i>
+                            </button>
+                            <button class="action-btn" title="Tùy chọn">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages">
+                        <div class="message-date-separator">
+                            <span>Hôm nay</span>
+                        </div>
+
+                        <!-- Tin nhắn người khác -->
+                        <div class="message their-message">
+                            <div class="message-avatar">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Chào bạn, bạn khỏe không?</p>
+                                </div>
+                                <span class="message-time">12:05</span>
+                            </div>
+                        </div>
+
+                        <!-- Tin nhắn mình -->
+                        <div class="message my-message">
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Chào bạn! Mình khỏe, còn bạn thì sao?</p>
+                                </div>
+                                <span class="message-time">12:07</span>
+                            </div>
+                        </div>
+
+                        <!-- Tin nhắn người khác - nhiều tin liên tiếp -->
+                        <div class="message their-message">
+                            <div class="message-avatar">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Mình cũng khỏe!</p>
+                                </div>
+                                <span class="message-time">12:10</span>
+                            </div>
+                        </div>
+                        <div class="message their-message no-avatar">
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Bạn đang làm gì vậy?</p>
+                                </div>
+                                <span class="message-time">12:10</span>
+                            </div>
+                        </div>
+
+                        <!-- Tin nhắn mình -->
+                        <div class="message my-message">
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Mình đang làm việc với dự án mới. Còn bạn?</p>
+                                </div>
+                                <span class="message-time">12:15</span>
+                            </div>
+                        </div>
+
+                        <!-- Tin nhắn người khác - có hình ảnh -->
+                        <div class="message their-message">
+                            <div class="message-avatar">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Mình vừa đi dạo ngoài công viên. Thời tiết hôm nay đẹp lắm!</p>
+                                    <div class="message-image">
+                                        <img src="https://source.unsplash.com/random/600x400/?park,nature" alt="Hình ảnh công viên">
+                                    </div>
+                                </div>
+                                <span class="message-time">12:25</span>
+                            </div>
+                        </div>
+
+                        <!-- Tin nhắn mình -->
+                        <div class="message my-message">
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Wow, đẹp thật! Chúc bạn một ngày tốt lành nhé!</p>
+                                </div>
+                                <span class="message-time">12:28</span>
+                            </div>
+                        </div>
+
+                        <!-- Tin nhắn người khác - cuối cùng -->
+                        <div class="message their-message">
+                            <div class="message-avatar">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Chúc bạn một ngày tốt lành! 😊</p>
+                                </div>
+                                <span class="message-time">12:30</span>
+                            </div>
+                        </div>
+
+                        <!-- Chỉ báo đang gõ -->
+                        <div class="typing-indicator">
+                            <div class="message-avatar">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                            </div>
+                            <div class="message-content">
+                                <div class="typing-bubble">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <!-- Thanh công cụ phương tiện -->
+                        <div class="media-toolbar">
+                            <button class="media-btn" title="Gửi ảnh">
+                                <i class="fas fa-image"></i>
+                            </button>
+                            <button class="media-btn" title="Gửi file">
+                                <i class="fas fa-file-alt"></i>
+                            </button>
+                            <button class="media-btn" title="Gửi GIF">
+                                <i class="fas fa-gift"></i>
+                            </button>
+                            <button class="media-btn" title="Ghi âm">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button class="media-btn" title="Vị trí">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </button>
+                        </div>
+
+                        <!-- Thanh nhập tin nhắn chính -->
+                        <div class="chat-input">
+                            <div class="input-attachments">
+                                <button class="attach-btn" title="Thêm tập tin đính kèm">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                            </div>
+
+                            <div class="message-input">
+                                <textarea placeholder="Nhập tin nhắn..." rows="1"></textarea>
+                                <div class="message-formatting">
+                                    <button class="format-btn" title="Định dạng chữ">
+                                        <i class="fas fa-bold"></i>
+                                    </button>
+                                    <button class="format-btn" title="Chèn mã">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                    <button class="format-btn" title="Tạo danh sách">
+                                        <i class="fas fa-list"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="input-actions">
+                                <div class="emoji-picker-container">
+                                    <button class="emoji-btn" title="Chọn emoji">
+                                        <i class="far fa-smile"></i>
+                                    </button>
+                                    <div class="emoji-picker">
+                                        <div class="emoji-categories">
+                                            <button class="emoji-category active" data-category="recent">
+                                                <i class="fas fa-clock"></i>
+                                            </button>
+                                            <button class="emoji-category" data-category="smileys">
+                                                <i class="far fa-smile"></i>
+                                            </button>
+                                            <button class="emoji-category" data-category="animals">
+                                                <i class="fas fa-paw"></i>
+                                            </button>
+                                            <button class="emoji-category" data-category="food">
+                                                <i class="fas fa-utensils"></i>
+                                            </button>
+                                            <button class="emoji-category" data-category="activities">
+                                                <i class="fas fa-futbol"></i>
+                                            </button>
+                                            <button class="emoji-category" data-category="travel">
+                                                <i class="fas fa-car"></i>
+                                            </button>
+                                            <button class="emoji-category" data-category="objects">
+                                                <i class="fas fa-lightbulb"></i>
+                                            </button>
+                                            <button class="emoji-category" data-category="symbols">
+                                                <i class="fas fa-hashtag"></i>
+                                            </button>
+                                        </div>
+                                        <div class="emoji-list">
+                                            <span class="emoji-item">😀</span>
+                                            <span class="emoji-item">😁</span>
+                                            <span class="emoji-item">😂</span>
+                                            <span class="emoji-item">🤣</span>
+                                            <span class="emoji-item">😃</span>
+                                            <span class="emoji-item">😄</span>
+                                            <span class="emoji-item">😅</span>
+                                            <span class="emoji-item">😆</span>
+                                            <span class="emoji-item">😉</span>
+                                            <span class="emoji-item">😊</span>
+                                            <span class="emoji-item">😋</span>
+                                            <span class="emoji-item">😎</span>
+                                            <span class="emoji-item">😍</span>
+                                            <span class="emoji-item">😘</span>
+                                            <span class="emoji-item">🥰</span>
+                                            <span class="emoji-item">😗</span>
+                                            <span class="emoji-item">😙</span>
+                                            <span class="emoji-item">🥲</span>
+                                            <span class="emoji-item">😚</span>
+                                            <span class="emoji-item">🙂</span>
+                                            <span class="emoji-item">🤗</span>
+                                            <span class="emoji-item">🤩</span>
+                                            <span class="emoji-item">🤔</span>
+                                            <span class="emoji-item">🫡</span>
+                                            <span class="emoji-item">🤨</span>
+                                            <span class="emoji-item">😐</span>
+                                            <span class="emoji-item">😑</span>
+                                        </div>
+                                        <div class="emoji-search">
+                                            <div class="search-input">
+                                                <i class="fas fa-search"></i>
+                                                <input type="text" placeholder="Tìm emoji...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="voice-btn" title="Ghi âm tin nhắn">
+                                    <i class="fas fa-microphone"></i>
+                                </button>
+                                <button class="send-btn" title="Gửi tin nhắn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phần thông tin chi tiết bên phải -->
+                <div class="chat-details">
+                    <div class="details-header">
+                        <h3>Thông tin</h3>
+                        <button class="close-details-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="contact-profile">
+                        <div class="profile-avatar">
+                            <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                        </div>
+                        <h2>Trần Thị B</h2>
+                        <p>@tranthib</p>
+                        <div class="contact-actions">
+                            <button class="profile-btn">
+                                <i class="fas fa-user"></i>
+                                <span>Xem hồ sơ</span>
+                            </button>
+                            <button class="mute-btn">
+                                <i class="fas fa-bell-slash"></i>
+                                <span>Tắt thông báo</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="shared-content">
+                        <div class="content-section">
+                            <h4>Ảnh đã chia sẻ</h4>
+                            <div class="shared-gallery">
+                                <img src="https://source.unsplash.com/random/100x100/?park" alt="Ảnh đã chia sẻ">
+                                <img src="https://source.unsplash.com/random/100x100/?city" alt="Ảnh đã chia sẻ">
+                                <img src="https://source.unsplash.com/random/100x100/?food" alt="Ảnh đã chia sẻ">
+                                <img src="https://source.unsplash.com/random/100x100/?event" alt="Ảnh đã chia sẻ">
+                                <a href="#" class="more-media">+8 nữa</a>
+                            </div>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h4>File đã chia sẻ</h4>
+                            <div class="shared-files">
+                                <div class="file-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <div class="file-info">
+                                        <p>Project_Proposal.pdf</p>
+                                        <span>24/05/2023</span>
+                                    </div>
+                                    <button class="download-btn">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                                <div class="file-item">
+                                    <i class="fas fa-file-word"></i>
+                                    <div class="file-info">
+                                        <p>Meeting_Notes.docx</p>
+                                        <span>22/05/2023</span>
+                                    </div>
+                                    <button class="download-btn">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="privacy-options">
+                        <div class="option-item">
+                            <i class="fas fa-lock"></i>
+                            <div class="option-info">
+                                <h4>Quyền riêng tư</h4>
+                                <p>Tin nhắn được mã hóa đầu cuối</p>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <i class="fas fa-trash"></i>
+                            <div class="option-info">
+                                <h4>Xóa cuộc trò chuyện</h4>
+                                <p>Không thể phục hồi sau khi xóa</p>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <i class="fas fa-ban"></i>
+                            <div class="option-info">
+                                <h4>Chặn liên hệ</h4>
+                                <p>Họ sẽ không thể liên hệ với bạn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Phần bên phải - sẽ được load từ right-sidebar.html (ẩn ở trang tin nhắn) -->
+        <div class="right-sidebar-container hidden"></div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="../Scripts/api-service.js"></script>
+    <script src="../Scripts/auth-guard.js"></script>
+    <script src="../Scripts/sidebar-loader.js"></script>
+    <script src="../Scripts/right-sidebar-loader.js"></script>
+    <script src="../Scripts/page-transition.js"></script>
+    <script>
+        // Script khởi tạo mặc định - đảm bảo khung chat hiển thị 
+        window.addEventListener('DOMContentLoaded', function() {
+            // Lấy phần tử khung chat
+            const chatContainer = document.querySelector('.chat-container');
+            
+            // Lấy danh sách các cuộc trò chuyện
+            const conversations = document.querySelectorAll('.conversation-card');
+            
+            // Nếu có ít nhất một cuộc trò chuyện và người dùng đang ở desktop, hiển thị chat mặc định
+            if (conversations.length > 0 && window.innerWidth >= 768) {
+                // Đánh dấu cuộc trò chuyện đầu tiên là active
+                conversations[0].classList.add('active');
+                
+                // Hiển thị khung chat
+                chatContainer.classList.add('active');
+                
+                // Tải nội dung cuộc trò chuyện đầu tiên
+                const contactName = conversations[0].querySelector('.conversation-info h3').textContent;
+                document.querySelector('.chat-header .chat-name h3').textContent = contactName;
+                
+                // Cuộn xuống tin nhắn cuối cùng
+                const chatMessages = document.querySelector('.chat-messages');
+                if (chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Đánh dấu menu tin nhắn là active trong sidebar
+            setTimeout(function() {
+                const messagesMenuItem = document.querySelector('.sidebar-menu li[data-page="messages"]');
+                if (messagesMenuItem) {
+                    // Xóa active từ tất cả các menu item
+                    const allMenuItems = document.querySelectorAll('.sidebar-menu li');
+                    allMenuItems.forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Thêm active cho menu tin nhắn
+                    messagesMenuItem.classList.add('active');
+                }
+            }, 300); // Đợi sidebar được tải xong
+            
+            // Xử lý các sự kiện
+            setupEventHandlers();
+        });
+        
+        function setupEventHandlers() {
+            // Các phần tử trong trang
+            const conversationCards = document.querySelectorAll('.conversation-card');
+            const chatContainer = document.querySelector('.chat-container');
+            const closeDetailsBtn = document.querySelector('.close-details-btn');
+            const infoBtn = document.querySelector('.chat-actions .action-btn:last-child');
+            const backBtn = document.querySelector('.chat-back-btn');
+            
+            // Xử lý click vào cuộc trò chuyện
+            conversationCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Loại bỏ active từ tất cả các cuộc trò chuyện
+                    conversationCards.forEach(c => c.classList.remove('active'));
+                    
+                    // Thêm active cho cuộc trò chuyện được click
+                    this.classList.add('active');
+                    
+                    // Hiển thị khung chat (đặc biệt quan trọng trên mobile)
+                    chatContainer.classList.add('active');
+                    
+                    // Hiển thị tên người đang chat trong header
+                    const contactName = this.querySelector('.conversation-info h3').textContent;
+                    document.querySelector('.chat-header .chat-name h3').textContent = contactName;
+                    
+                    // Cuộn xuống tin nhắn cuối cùng
+                    const chatMessages = document.querySelector('.chat-messages');
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // Đánh dấu tin nhắn đã đọc nếu có
+                    const unreadBadge = this.querySelector('.unread-badge');
+                    if (unreadBadge) {
+                        unreadBadge.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Xử lý nút quay lại trên mobile
+            if (backBtn) {
+                backBtn.addEventListener('click', function() {
+                    chatContainer.classList.remove('active');
+                });
+            }
+            
+            // Hiển thị/ẩn thông tin chi tiết
+            if (infoBtn) {
+                infoBtn.addEventListener('click', function() {
+                    document.querySelector('.chat-details').classList.toggle('active');
+                });
+            }
+            
+            if (closeDetailsBtn) {
+                closeDetailsBtn.addEventListener('click', function() {
+                    document.querySelector('.chat-details').classList.remove('active');
+                });
+            }
+            
+            // Xử lý lọc tin nhắn
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Loại bỏ active từ tất cả các nút
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Thêm active cho nút được click
+                    this.classList.add('active');
+                    
+                    // Thêm lọc thực tế ở đây (giả lập trong demo)
+                    const filter = this.getAttribute('data-filter');
+                    
+                    if (filter === 'unread') {
+                        // Ví dụ: chỉ hiển thị các cuộc trò chuyện có .unread-badge
+                        conversationCards.forEach(card => {
+                            if (card.querySelector('.unread-badge')) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    } else if (filter === 'groups') {
+                        // Ví dụ: chỉ hiển thị các cuộc trò chuyện nhóm
+                        conversationCards.forEach(card => {
+                            if (card.querySelector('.group-avatar')) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    } else {
+                        // Hiển thị tất cả
+                        conversationCards.forEach(card => {
+                            card.style.display = 'flex';
+                        });
+                    }
+                });
+            });
+            
+            // Xử lý gửi tin nhắn
+            setupMessageSending();
+        }
+        
+        function setupMessageSending() {
+            const messageInput = document.querySelector('.message-input textarea');
+            const sendBtn = document.querySelector('.send-btn');
+            
+            if (!messageInput || !sendBtn) return;
+            
+            function sendMessage() {
+                const message = messageInput.value.trim();
+                
+                if (message) {
+                    // Thêm tin nhắn mới vào cuộc trò chuyện
+                    const chatMessages = document.querySelector('.chat-messages');
+                    const newMessage = document.createElement('div');
+                    newMessage.classList.add('message', 'my-message', 'animate__animated', 'animate__fadeIn');
+                    
+                    const currentTime = new Date();
+                    const hours = currentTime.getHours().toString().padStart(2, '0');
+                    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                    
+                    newMessage.innerHTML = `
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                <p>${message}</p>
+                            </div>
+                            <span class="message-time">${hours}:${minutes}</span>
+                        </div>
+                    `;
+                    
+                    // Thêm tin nhắn vào cuối
+                    chatMessages.appendChild(newMessage);
+                    
+                    // Xóa nội dung input
+                    messageInput.value = '';
+                    // Reset chiều cao textarea
+                    messageInput.style.height = 'auto';
+                    
+                    // Cuộn xuống dưới cùng
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // Giả lập phản hồi sau 1 giây
+                    setTimeout(() => {
+                        const typingIndicator = document.querySelector('.typing-indicator');
+                        typingIndicator.style.display = 'flex';
+                        
+                        setTimeout(() => {
+                            // Ẩn chỉ báo đang gõ
+                            typingIndicator.style.display = 'none';
+                            
+                            // Thêm phản hồi tự động
+                            const autoReply = document.createElement('div');
+                            autoReply.classList.add('message', 'their-message', 'animate__animated', 'animate__fadeIn');
+                            
+                            const replyTime = new Date();
+                            const replyHours = replyTime.getHours().toString().padStart(2, '0');
+                            const replyMinutes = replyTime.getMinutes().toString().padStart(2, '0');
+                            
+                            autoReply.innerHTML = `
+                                <div class="message-avatar">
+                                    <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                                </div>
+                                <div class="message-content">
+                                    <div class="message-bubble">
+                                        <p>Cảm ơn bạn đã nhắn tin! 👍</p>
+                                    </div>
+                                    <span class="message-time">${replyHours}:${replyMinutes}</span>
+                                </div>
+                            `;
+                            
+                            chatMessages.appendChild(autoReply);
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                        }, 2000);
+                    }, 1000);
+                }
+            }
+            
+            // Xử lý sự kiện click nút gửi
+            sendBtn.addEventListener('click', sendMessage);
+            
+            // Xử lý sự kiện nhấn Enter để gửi
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault(); // Ngăn không cho xuống dòng
+                    sendMessage();
+                }
+            });
+            
+            // Hiển thị hiệu ứng đang gõ khi focus vào input
+            messageInput.addEventListener('focus', function() {
+                // Hiển thị chỉ báo đang gõ ngẫu nhiên để demo
+                if (Math.random() > 0.5) {
+                    document.querySelector('.typing-indicator').style.display = 'flex';
+                    
+                    setTimeout(() => {
+                        document.querySelector('.typing-indicator').style.display = 'none';
+                    }, 3000);
+                }
+            });
+            
+            // Tự động mở rộng textarea khi nhập
+            messageInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+                
+                // Nếu chiều cao vượt quá giới hạn, thêm thanh cuộn
+                if (this.scrollHeight > 120) {
+                    this.style.overflowY = 'auto';
+                } else {
+                    this.style.overflowY = 'hidden';
+                }
+            });
+            
+            // Xử lý tính năng khác
+            setupEmojiPicker();
+            setupVoiceMessages();
+            setupMediaButtons();
+        }
+        
+        function setupEmojiPicker() {
+            const messageInput = document.querySelector('.message-input textarea');
+            const emojiItems = document.querySelectorAll('.emoji-item');
+            
+            if (!messageInput || !emojiItems.length) return;
+            
+            emojiItems.forEach(emoji => {
+                emoji.addEventListener('click', function() {
+                    // Thêm emoji vào vị trí con trỏ
+                    const startPos = messageInput.selectionStart;
+                    const endPos = messageInput.selectionEnd;
+                    const text = messageInput.value;
+                    const emojiChar = this.textContent;
+                    
+                    messageInput.value = text.substring(0, startPos) + emojiChar + text.substring(endPos);
+                    
+                    // Đặt lại vị trí con trỏ
+                    messageInput.selectionStart = messageInput.selectionEnd = startPos + emojiChar.length;
+                    messageInput.focus();
+                    
+                    // Kích hoạt sự kiện input để cập nhật chiều cao
+                    const event = new Event('input');
+                    messageInput.dispatchEvent(event);
+                });
+            });
+            
+            // Xử lý tìm kiếm emoji
+            const emojiSearchInput = document.querySelector('.emoji-search input');
+            
+            if (emojiSearchInput) {
+                emojiSearchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    emojiItems.forEach(emoji => {
+                        // Đơn giản hóa: Nếu emoji chứa từ khóa (sẽ cần cải thiện trong thực tế)
+                        if (searchTerm === '' || emoji.getAttribute('data-keyword')?.toLowerCase().includes(searchTerm)) {
+                            emoji.style.display = 'flex';
+                        } else {
+                            emoji.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            // Xử lý chuyển đổi danh mục emoji
+            const emojiCategories = document.querySelectorAll('.emoji-category');
+            
+            emojiCategories.forEach(category => {
+                category.addEventListener('click', function() {
+                    // Loại bỏ active từ tất cả các danh mục
+                    emojiCategories.forEach(cat => cat.classList.remove('active'));
+                    
+                    // Thêm active cho danh mục được click
+                    this.classList.add('active');
+                    
+                    // Lọc emoji theo danh mục (giả lập trong demo)
+                    const categoryName = this.getAttribute('data-category');
+                    console.log(`Đã chọn danh mục emoji: ${categoryName}`);
+                });
+            });
+        }
+        
+        function setupVoiceMessages() {
+            const messageInput = document.querySelector('.message-input textarea');
+            const voiceBtn = document.querySelector('.voice-btn');
+            
+            if (!voiceBtn || !messageInput) return;
+            
+            let isRecording = false;
+            let recordingStartTime;
+            let recordingTimer;
+            
+            voiceBtn.addEventListener('click', function() {
+                if (!isRecording) {
+                    // Bắt đầu ghi âm
+                    startRecording();
+                } else {
+                    // Dừng ghi âm
+                    stopRecording();
+                }
+            });
+            
+            function startRecording() {
+                console.log('Bắt đầu ghi âm...');
+                isRecording = true;
+                
+                // Thay đổi icon
+                voiceBtn.innerHTML = '<i class="fas fa-stop"></i>';
+                voiceBtn.style.color = 'var(--danger-color)';
+                
+                // Thêm chỉ báo đang ghi âm
+                const messageInputElement = document.querySelector('.message-input');
+                
+                // Tạo chỉ báo ghi âm nếu chưa có
+                if (!document.querySelector('.recording-indicator')) {
+                    const recordingIndicator = document.createElement('div');
+                    recordingIndicator.classList.add('recording-indicator');
+                    recordingIndicator.innerHTML = `
+                        <div class="recording-pulse"></div>
+                        <span class="recording-time">00:00</span>
+                        <div class="recording-controls">
+                            <button class="recording-btn stop" title="Hủy">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button class="recording-btn send" title="Gửi">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+                    `;
+                    messageInputElement.appendChild(recordingIndicator);
+                    
+                    // Thêm sự kiện cho các nút điều khiển
+                    const stopBtn = recordingIndicator.querySelector('.recording-btn.stop');
+                    const sendBtn = recordingIndicator.querySelector('.recording-btn.send');
+                    
+                    stopBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        cancelRecording();
+                    });
+                    
+                    sendBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        sendVoiceMessage();
+                    });
+                }
+                
+                // Hiển thị chỉ báo
+                const recordingIndicator = document.querySelector('.recording-indicator');
+                recordingIndicator.classList.add('active');
+                
+                // Bắt đầu tính thời gian
+                recordingStartTime = new Date();
+                updateRecordingTime();
+                
+                // Ẩn các nút khác
+                messageInput.disabled = true;
+            }
+            
+            function updateRecordingTime() {
+                const recordingTimeElement = document.querySelector('.recording-time');
+                if (!recordingTimeElement) return;
+                
+                const currentTime = new Date();
+                const elapsedSeconds = Math.floor((currentTime - recordingStartTime) / 1000);
+                const minutes = Math.floor(elapsedSeconds / 60).toString().padStart(2, '0');
+                const seconds = (elapsedSeconds % 60).toString().padStart(2, '0');
+                
+                recordingTimeElement.textContent = `${minutes}:${seconds}`;
+                
+                recordingTimer = setTimeout(updateRecordingTime, 1000);
+            }
+            
+            function stopRecording() {
+                console.log('Dừng ghi âm.');
+                isRecording = false;
+                
+                // Khôi phục icon
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                voiceBtn.style.color = '';
+                
+                // Ẩn chỉ báo
+                const recordingIndicator = document.querySelector('.recording-indicator');
+                if (recordingIndicator) {
+                    recordingIndicator.classList.remove('active');
+                }
+                
+                // Dừng cập nhật thời gian
+                clearTimeout(recordingTimer);
+                
+                // Kích hoạt lại các nút khác
+                messageInput.disabled = false;
+            }
+            
+            function cancelRecording() {
+                console.log('Hủy ghi âm.');
+                stopRecording();
+            }
+            
+            function sendVoiceMessage() {
+                console.log('Gửi tin nhắn thoại.');
+                stopRecording();
+                
+                // Thêm tin nhắn thoại giả lập vào cuộc trò chuyện
+                const chatMessages = document.querySelector('.chat-messages');
+                const newMessage = document.createElement('div');
+                newMessage.classList.add('message', 'my-message', 'animate__animated', 'animate__fadeIn');
+                
+                const currentTime = new Date();
+                const hours = currentTime.getHours().toString().padStart(2, '0');
+                const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                
+                // Tính tổng thời gian bản ghi
+                const elapsedSeconds = Math.floor((currentTime - recordingStartTime) / 1000);
+                const recordMinutes = Math.floor(elapsedSeconds / 60).toString().padStart(2, '0');
+                const recordSeconds = (elapsedSeconds % 60).toString().padStart(2, '0');
+                
+                newMessage.innerHTML = `
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <div class="voice-message">
+                                <button class="voice-play-btn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="voice-waveform"></div>
+                                <span class="voice-duration">${recordMinutes}:${recordSeconds}</span>
+                            </div>
+                        </div>
+                        <span class="message-time">${hours}:${minutes}</span>
+                    </div>
+                `;
+                
+                chatMessages.appendChild(newMessage);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+        
+        function setupMediaButtons() {
+            const mediaButtons = document.querySelectorAll('.media-btn');
+            
+            mediaButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const type = this.getAttribute('title');
+                    console.log(`Chức năng "${type}" được kích hoạt`);
+                    
+                    // Giả lập hành động dựa trên loại nút
+                    switch (type) {
+                        case 'Gửi ảnh':
+                            simulateSendImage();
+                            break;
+                        case 'Gửi file':
+                            // Mở hộp thoại chọn file
+                            break;
+                        case 'Gửi GIF':
+                            // Mở bộ chọn GIF
+                            break;
+                        case 'Ghi âm':
+                            // Đã xử lý bởi nút ghi âm
+                            break;
+                    }
+                });
+            });
+            
+            function simulateSendImage() {
+                // Giả lập gửi ảnh từ thư viện
+                const chatMessages = document.querySelector('.chat-messages');
+                const newMessage = document.createElement('div');
+                newMessage.classList.add('message', 'my-message', 'animate__animated', 'animate__fadeIn');
+                
+                const currentTime = new Date();
+                const hours = currentTime.getHours().toString().padStart(2, '0');
+                const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                
+                newMessage.innerHTML = `
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <div class="message-image">
+                                <img src="https://source.unsplash.com/random/600x400/?nature" alt="Hình ảnh đã gửi">
+                            </div>
+                        </div>
+                        <span class="message-time">${hours}:${minutes}</span>
+                    </div>
+                `;
+                
+                chatMessages.appendChild(newMessage);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html> 

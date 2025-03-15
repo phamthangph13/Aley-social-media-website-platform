@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác thực Email</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        .content {
+            padding: 30px 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3498db;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .warning {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        #success-message {
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+        #error-message {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/150x50/3498db/ffffff?text=YourLogo" alt="Logo" class="logo">
+        </div>
+        <div class="content">
+            <h1>Xác thực Email của bạn</h1>
+            <p>Vui lòng nhấn nút bên dưới để xác thực email của bạn và kích hoạt tài khoản.</p>
+            <button id="verify-button" class="btn" onclick="verifyEmail()">Xác thực Email Ngay</button>
+            <div id="success-message">Xác thực email thành công! Bây giờ bạn có thể đăng nhập.</div>
+            <div id="error-message"></div>
+            <div class="warning">
+                <p><strong>Lưu ý:</strong> Chỉ xác nhận nếu bạn đã đăng ký tài khoản với email này. Việc xác nhận sẽ kích hoạt tài khoản của bạn.</p>
+                <p><strong>Quan trọng:</strong> Liên kết xác thực sẽ hết hạn sau 24 giờ.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2024 Aley. Tất cả các quyền được bảo lưu.</p>
+            <p>Email này được gửi tự động, vui lòng không trả lời.</p>
+        </div>
+    </div>
+
+    <script>
+        // Lấy token từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        
+        function verifyEmail() {
+            document.getElementById('verify-button').disabled = true;
+            document.getElementById('verify-button').innerText = 'Đang xác thực...';
+            
+            // Gọi API xác thực
+            fetch(`/api/auth/verify/${token}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Email verified successfully') {
+                    // Chuyển hướng đến trang xác thực thành công
+                    window.location.href = '/api/auth/verify-result/success';
+                } else {
+                    // Chuyển hướng đến trang xác thực thất bại với thông báo lỗi
+                    const errorMessage = encodeURIComponent(data.message || 'Đã xảy ra lỗi trong quá trình xác thực.');
+                    window.location.href = `/api/auth/verify-result/error?error=${errorMessage}`;
+                }
+            })
+            .catch(error => {
+                // Chuyển hướng đến trang xác thực thất bại với thông báo lỗi chung
+                window.location.href = '/api/auth/verify-result/error?error=Đã xảy ra lỗi trong quá trình xác thực.';
+            });
+        }
+    </script>
+</body>
+</html> 

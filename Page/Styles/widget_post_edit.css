@@ -1,0 +1,410 @@
+/* Edit Post Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Edit post modal container - sheet style from bottom */
+.edit-post-modal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: none;
+    z-index: 1001;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Show modal when active */
+.edit-post-modal.active {
+    display: block;
+    transform: translateY(0);
+}
+
+/* Edit post container */
+.edit-post-container {
+    background-color: var(--card-bg, white);
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    color: var(--text-color, #333);
+    position: relative;
+    padding-top: 10px;
+}
+
+/* Pull indicator at top of sheet */
+.edit-post-container::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 5px;
+    background-color: var(--border-color, #e6e6e6);
+    border-radius: 5px;
+}
+
+/* Modal header */
+.edit-post-header {
+    padding: 24px 20px 16px;
+    border-bottom: 1px solid var(--border-color, #eee);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-post-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--heading-color, #333);
+}
+
+.close-edit-modal {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted, #777);
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.close-edit-modal:hover {
+    background-color: var(--hover-bg, #f5f5f5);
+    color: var(--primary-color);
+}
+
+/* Modal body */
+.edit-post-body {
+    padding: 20px;
+}
+
+.edit-user-input {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.edit-user-input .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.edit-user-input .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-user-input .post-input {
+    flex-grow: 1;
+}
+
+.edit-user-input textarea {
+    width: 100%;
+    min-height: 120px;
+    border: none;
+    resize: none;
+    font-size: 1rem;
+    padding: 8px 0;
+    background-color: transparent;
+    color: var(--text-color, #333);
+    outline: none;
+}
+
+.edit-user-input textarea::placeholder {
+    color: var(--text-muted, #777);
+}
+
+.post-attachments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.post-attachments .attachment-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: var(--button-light-bg, #f5f5f5);
+    color: var(--button-light-text, #555);
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.post-attachments .attachment-btn:hover {
+    background-color: var(--button-light-hover, #e5e7eb);
+}
+
+/* Modal footer */
+.edit-post-footer {
+    padding: 16px 20px 24px;
+    border-top: 1px solid var(--border-color, #eee);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.save-edit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.save-edit-btn:hover {
+    background-color: var(--primary-hover, var(--primary-color-dark));
+}
+
+/* Privacy selector */
+.privacy-selector {
+    position: relative;
+}
+
+.privacy-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: var(--button-light-bg, #f5f5f5);
+    color: var(--button-light-text, #555);
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.privacy-btn:hover {
+    background-color: var(--button-light-hover, #e5e7eb);
+}
+
+.privacy-dropdown {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    width: 280px;
+    background-color: var(--card-bg, white);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    display: none;
+    z-index: 10;
+}
+
+.privacy-dropdown.show {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.privacy-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.privacy-option:hover {
+    background-color: var(--hover-bg, #f5f5f5);
+}
+
+.privacy-option i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--icon-color, #555);
+}
+
+.privacy-details {
+    flex-grow: 1;
+}
+
+.privacy-name {
+    font-weight: 600;
+    display: block;
+    color: var(--text-color, #333);
+}
+
+.privacy-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted, #777);
+}
+
+/* Dark theme support */
+html[data-theme="dark"] .edit-post-container {
+    background-color: var(--card-bg, #1f2937);
+    color: var(--text-color, #e5e7eb);
+}
+
+html[data-theme="dark"] .edit-post-container::before {
+    background-color: var(--border-color, #374151);
+}
+
+html[data-theme="dark"] .edit-post-header {
+    border-bottom-color: var(--border-color, #374151);
+}
+
+html[data-theme="dark"] .edit-post-header h3 {
+    color: var(--heading-color, #f3f4f6);
+}
+
+html[data-theme="dark"] .close-edit-modal {
+    color: var(--text-muted, #9ca3af);
+}
+
+html[data-theme="dark"] .close-edit-modal:hover {
+    background-color: var(--hover-bg, #374151);
+}
+
+html[data-theme="dark"] .edit-user-input textarea {
+    color: var(--text-color, #e5e7eb);
+}
+
+html[data-theme="dark"] .edit-user-input textarea::placeholder {
+    color: var(--text-muted, #9ca3af);
+}
+
+html[data-theme="dark"] .post-attachments .attachment-btn,
+html[data-theme="dark"] .privacy-btn {
+    background-color: var(--button-light-bg, #374151);
+    color: var(--button-light-text, #d1d5db);
+}
+
+html[data-theme="dark"] .post-attachments .attachment-btn:hover,
+html[data-theme="dark"] .privacy-btn:hover {
+    background-color: var(--button-light-hover, #4b5563);
+}
+
+html[data-theme="dark"] .privacy-dropdown {
+    background-color: var(--card-bg, #1f2937);
+}
+
+html[data-theme="dark"] .privacy-option:hover {
+    background-color: var(--hover-bg, #374151);
+}
+
+html[data-theme="dark"] .privacy-name {
+    color: var(--text-color, #e5e7eb);
+}
+
+html[data-theme="dark"] .privacy-desc {
+    color: var(--text-muted, #9ca3af);
+}
+
+html[data-theme="dark"] .edit-post-footer {
+    border-top-color: var(--border-color, #374151);
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
+    .edit-post-modal {
+        max-height: 85vh;
+    }
+
+    .edit-user-input textarea {
+        min-height: 100px;
+    }
+
+    .edit-post-footer {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .privacy-selector {
+        width: 100%;
+    }
+
+    .privacy-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .save-edit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .privacy-dropdown {
+        width: 100%;
+        left: 0;
+    }
+}
+
+/* Animation for modal */
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Save notification styles */
+.save-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    z-index: 9999;
+    transition: transform 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.save-notification.show {
+    transform: translateX(-50%) translateY(0);
+} 

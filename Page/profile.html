@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aley - Hồ sơ</title>
+    <link rel="stylesheet" href="Styles/global.css">
+    <link rel="stylesheet" href="Styles/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Hashtag styles */
+        .hashtag {
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 0 2px;
+            margin: 0 -2px;
+            display: inline-block;
+            position: relative;
+            animation: hashtag-pulse 2s ease-in-out infinite;
+        }
+        
+        /* Custom animation for hashtags */
+        @keyframes hashtag-pulse {
+            0% { opacity: 0.85; }
+            50% { opacity: 1; }
+            100% { opacity: 0.85; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Thanh điều hướng - sẽ được load từ sidebar-menu.html -->
+        <div class="sidebar-container"></div>
+
+        <!-- Phần nội dung chính -->
+        <main class="main-content">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-cover">
+                    <img src="https://marketplace.canva.com/EAF3xGNlNSc/2/0/1600w/canva-xanh-l%C3%A1-v%C3%A0ng-phong-c%E1%BA%A3nh-c%C3%A2u-l%E1%BA%A1c-b%E1%BB%99-du-l%E1%BB%8Bch-%E1%BA%A3nh-b%C3%ACa-nh%C3%B3m-facebook-DqKwLtooIqU.jpg" alt="Cover Photo">
+                    <button class="edit-cover-btn">
+                        <i class="fas fa-camera"></i>
+                        <span>Thay đổi ảnh bìa</span>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Profile Avatar">
+                        <button class="edit-avatar-btn">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-name">
+                            <h1>Nguyễn Văn A</h1>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i>
+                            </span>
+                        </div>
+                        <p class="profile-bio">Nhà thiết kế UI/UX | Content Creator | Tech Enthusiast</p>
+                        <!-- Hidden field to store birthday data -->
+                        <div class="profile-birthday" style="display: none;" data-birthday="1990-01-01"></div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">1.2K</span>
+                                <span class="stat-label">Bài viết</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">5.6K</span>
+                                <span class="stat-label">Người theo dõi</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">3.8K</span>
+                                <span class="stat-label">Đang theo dõi</span>
+                            </div>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="primary-btn">
+                                <i class="fas fa-edit"></i>
+                                <span>Chỉnh sửa hồ sơ</span>
+                            </button>
+                            <button class="secondary-btn">
+                                <i class="fas fa-share"></i>
+                                <span>Chia sẻ</span>
+                            </button>
+                            <button class="secondary-btn">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Navigation -->
+            <div class="profile-nav">
+                <nav>
+                    <a href="#" class="active">
+                        <i class="fas fa-th-large"></i>
+                        <span>Bài viết</span>
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-image"></i>
+                        <span>Ảnh</span>
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-video"></i>
+                        <span>Video</span>
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-users"></i>
+                        <span>Bạn bè</span>
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Đã lưu</span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Posts Container -->
+                <div class="posts-container">
+                    <!-- Loading Indicator -->
+                    <div class="posts-loading">
+                        <div class="loading-spinner"></div>
+                        <p>Đang tải bài viết...</p>
+                    </div>
+                    
+                    <!-- Error Message Container -->
+                    <div class="posts-error" style="display: none;">
+                        <div class="empty-state">
+                            <i class="fas fa-exclamation-triangle fa-3x"></i>
+                            <h3>Không thể tải bài viết</h3>
+                            <p>Đã xảy ra lỗi khi tải bài viết. Vui lòng thử lại sau.</p>
+                            <button class="retry-btn">Thử lại</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div class="posts-empty" style="display: none;">
+                        <div class="empty-state">
+                            <i class="fas fa-newspaper fa-3x"></i>
+                            <h3>Chưa có bài viết nào</h3>
+                            <p>Hãy tạo bài viết đầu tiên của bạn để chia sẻ với mọi người.</p>
+                            <button class="create-post-btn">Tạo bài viết</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Posts Grid -->
+                    <div class="posts-grid">
+                        <!-- Posts will be loaded here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Phần bên phải - sẽ được load từ right-sidebar.html -->
+        <div class="right-sidebar-container"></div>
+    </div>
+
+    <!-- Post loading overlay -->
+    <div class="post-loading-overlay">
+        <div class="post-loading-container">
+            <div class="post-loading-spinner"></div>
+            <div class="post-loading-progress">
+                <div class="post-loading-progress-bar"></div>
+            </div>
+            <p class="post-loading-text">Đang xử lý...</p>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="../Scripts/api-service.js"></script>
+    <script src="../Scripts/auth-guard.js"></script>
+    <script src="../Scripts/sidebar-loader.js"></script>
+    <script src="../Scripts/right-sidebar-loader.js"></script>
+    <script src="../Scripts/page-transition.js"></script>
+    <script src="../Scripts/profile-edit.js"></script>
+    <script src="../Scripts/profile-handler.js"></script>
+    <script src="../Scripts/hashtag-formatter.js"></script>
+    <script src="../Scripts/profile-posts.js"></script>
+</body>
+</html> 

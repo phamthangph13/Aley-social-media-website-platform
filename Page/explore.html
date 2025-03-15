@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aley - Khám phá</title>
+    <link rel="stylesheet" href="Styles/global.css">
+    <link rel="stylesheet" href="Styles/explore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Thanh điều hướng - sẽ được load từ sidebar-menu.html -->
+        <div class="sidebar-container"></div>
+
+        <!-- Phần nội dung chính -->
+        <main class="main-content">
+            <!-- Phần tìm kiếm -->
+            <div class="search-section card">
+                <div class="card-header">
+                    <h2>Khám phá</h2>
+                </div>
+                <div class="card-body">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Tìm kiếm người dùng, bài viết, nhóm...">
+                    </div>
+                    <div class="search-filters">
+                        <button class="filter-btn active">
+                            <i class="fas fa-globe"></i>
+                            <span>Tất cả</span>
+                        </button>
+                        <button class="filter-btn">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Người dùng</span>
+                        </button>
+                        <button class="filter-btn">
+                            <i class="fas fa-image"></i>
+                            <span>Ảnh</span>
+                        </button>
+                        <button class="filter-btn">
+                            <i class="fas fa-video"></i>
+                            <span>Video</span>
+                        </button>
+                        <button class="filter-btn">
+                            <i class="fas fa-users"></i>
+                            <span>Nhóm</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nội dung khám phá -->
+            <div class="explore-content">
+                <!-- Xu hướng -->
+                <div class="trending-section card animate__animated animate__fadeIn">
+                    <div class="card-header">
+                        <h3>Xu hướng hôm nay</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="trending-topics">
+                            <div class="trending-topic">
+                                <div class="topic-rank">#1</div>
+                                <div class="topic-details">
+                                    <h4>Việt Nam</h4>
+                                    <p>125K bài viết</p>
+                                </div>
+                            </div>
+                            <div class="trending-topic">
+                                <div class="topic-rank">#2</div>
+                                <div class="topic-details">
+                                    <h4>Công nghệ</h4>
+                                    <p>98K bài viết</p>
+                                </div>
+                            </div>
+                            <div class="trending-topic">
+                                <div class="topic-rank">#3</div>
+                                <div class="topic-details">
+                                    <h4>Âm nhạc</h4>
+                                    <p>76K bài viết</p>
+                                </div>
+                            </div>
+                            <div class="trending-topic">
+                                <div class="topic-rank">#4</div>
+                                <div class="topic-details">
+                                    <h4>Thể thao</h4>
+                                    <p>64K bài viết</p>
+                                </div>
+                            </div>
+                            <div class="trending-topic">
+                                <div class="topic-rank">#5</div>
+                                <div class="topic-details">
+                                    <h4>Du lịch</h4>
+                                    <p>52K bài viết</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gợi ý cho bạn -->
+                <div class="suggested-section card animate__animated animate__fadeIn">
+                    <div class="card-header">
+                        <h3>Có thể bạn quan tâm</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="suggested-grid">
+                            <!-- Gợi ý 1 -->
+                            <div class="suggested-item">
+                                <div class="suggested-media">
+                                    <img src="https://source.unsplash.com/random/300x200/?travel,vietnam" alt="Du lịch Việt Nam">
+                                </div>
+                                <div class="suggested-info">
+                                    <h4>Du lịch Việt Nam</h4>
+                                    <p>Cộng đồng • 245K thành viên</p>
+                                    <button class="follow-btn">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Theo dõi</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Gợi ý 2 -->
+                            <div class="suggested-item">
+                                <div class="suggested-media">
+                                    <img src="https://source.unsplash.com/random/300x200/?tech" alt="Công nghệ hiện đại">
+                                </div>
+                                <div class="suggested-info">
+                                    <h4>Công nghệ hiện đại</h4>
+                                    <p>Cộng đồng • 189K thành viên</p>
+                                    <button class="follow-btn">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Theo dõi</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Gợi ý 3 -->
+                            <div class="suggested-item">
+                                <div class="suggested-media">
+                                    <img src="https://source.unsplash.com/random/300x200/?food,vietnamese" alt="Ẩm thực Việt Nam">
+                                </div>
+                                <div class="suggested-info">
+                                    <h4>Ẩm thực Việt Nam</h4>
+                                    <p>Cộng đồng • 210K thành viên</p>
+                                    <button class="follow-btn">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Theo dõi</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Gợi ý 4 -->
+                            <div class="suggested-item">
+                                <div class="suggested-media">
+                                    <img src="https://source.unsplash.com/random/300x200/?music,concert" alt="Âm nhạc & Nghệ thuật">
+                                </div>
+                                <div class="suggested-info">
+                                    <h4>Âm nhạc & Nghệ thuật</h4>
+                                    <p>Cộng đồng • 178K thành viên</p>
+                                    <button class="follow-btn">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Theo dõi</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Khám phá người dùng -->
+                <div class="discover-users card animate__animated animate__fadeIn">
+                    <div class="card-header">
+                        <h3>Khám phá người dùng mới</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="user-grid">
+                            <!-- Người dùng 1 -->
+                            <div class="user-item">
+                                <div class="user-avatar">
+                                    <img src="https://i.pravatar.cc/150?img=1" alt="Người dùng">
+                                </div>
+                                <div class="user-info">
+                                    <h4>Nguyễn Văn A</h4>
+                                    <p>Nhà thiết kế UI/UX</p>
+                                    <button class="connect-btn">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Kết nối</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Người dùng 2 -->
+                            <div class="user-item">
+                                <div class="user-avatar">
+                                    <img src="https://i.pravatar.cc/150?img=2" alt="Người dùng">
+                                </div>
+                                <div class="user-info">
+                                    <h4>Trần Minh B</h4>
+                                    <p>Kỹ sư phần mềm</p>
+                                    <button class="connect-btn">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Kết nối</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Người dùng 3 -->
+                            <div class="user-item">
+                                <div class="user-avatar">
+                                    <img src="https://i.pravatar.cc/150?img=3" alt="Người dùng">
+                                </div>
+                                <div class="user-info">
+                                    <h4>Lê Thị C</h4>
+                                    <p>Marketing Specialist</p>
+                                    <button class="connect-btn">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Kết nối</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Người dùng 4 -->
+                            <div class="user-item">
+                                <div class="user-avatar">
+                                    <img src="https://i.pravatar.cc/150?img=4" alt="Người dùng">
+                                </div>
+                                <div class="user-info">
+                                    <h4>Phạm Đức D</h4>
+                                    <p>Content Creator</p>
+                                    <button class="connect-btn">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Kết nối</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Phần bên phải - sẽ được load từ right-sidebar.html -->
+        <div class="right-sidebar-container"></div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="../Scripts/api-service.js"></script>
+    <script src="../Scripts/auth-guard.js"></script>
+    <script src="../Scripts/sidebar-loader.js"></script>
+    <script src="../Scripts/right-sidebar-loader.js"></script>
+    <script src="../Scripts/page-transition.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hiệu ứng cho các nút lọc
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Xóa trạng thái active cho tất cả các nút
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Thêm active cho nút được click
+                    this.classList.add('active');
+                });
+            });
+            
+            // Hiệu ứng cho nút theo dõi và kết nối
+            const actionButtons = document.querySelectorAll('.follow-btn, .connect-btn');
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    const text = this.querySelector('span');
+                    
+                    if (this.classList.contains('active')) {
+                        if (this.classList.contains('follow-btn')) {
+                            icon.classList.remove('fa-plus');
+                            icon.classList.add('fa-check');
+                            text.textContent = 'Đang theo dõi';
+                        } else {
+                            icon.classList.remove('fa-user-plus');
+                            icon.classList.add('fa-user-check');
+                            text.textContent = 'Đã kết nối';
+                        }
+                        
+                        // Hiệu ứng animation
+                        this.classList.add('animate__animated', 'animate__pulse');
+                        setTimeout(() => {
+                            this.classList.remove('animate__animated', 'animate__pulse');
+                        }, 1000);
+                    } else {
+                        if (this.classList.contains('follow-btn')) {
+                            icon.classList.remove('fa-check');
+                            icon.classList.add('fa-plus');
+                            text.textContent = 'Theo dõi';
+                        } else {
+                            icon.classList.remove('fa-user-check');
+                            icon.classList.add('fa-user-plus');
+                            text.textContent = 'Kết nối';
+                        }
+                    }
+                });
+            });
+            
+            // Hiệu ứng khi load trang
+            const animatedElements = document.querySelectorAll('.animate__animated');
+            setTimeout(() => {
+                animatedElements.forEach((element, index) => {
+                    setTimeout(() => {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, index * 200);
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html> 

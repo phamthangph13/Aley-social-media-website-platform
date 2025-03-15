@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Hashtag Formatter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        .test-container {
+            margin-top: 20px;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .output {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            min-height: 100px;
+            background-color: #f9f9f9;
+        }
+        
+        .hashtag {
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 0 2px;
+            margin: 0 -2px;
+            display: inline-block;
+            position: relative;
+            animation: hashtag-pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes hashtag-pulse {
+            0% { opacity: 0.85; }
+            50% { opacity: 1; }
+            100% { opacity: 0.85; }
+        }
+        
+        button {
+            background-color: #7f68dc;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        button:hover {
+            background-color: #6a56c4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hashtag Formatter Test</h1>
+    
+    <div class="test-container">
+        <h3>Enter text with hashtags</h3>
+        <textarea id="input-text" placeholder="Type something with hashtags like: Hello #world this is a #test">Xin chào mọi người! #aley là mạng xã hội #tuyệt_vời mà tôi đang sử dụng. Tôi rất thích #socialnetwork và #kết_nối với mọi người!</textarea>
+        <button id="format-btn">Format Hashtags</button>
+        
+        <h3>Output:</h3>
+        <div id="output" class="output"></div>
+    </div>
+    
+    <script src="hashtag-formatter.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputText = document.getElementById('input-text');
+            const outputDiv = document.getElementById('output');
+            const formatBtn = document.getElementById('format-btn');
+            
+            // Format on page load
+            updateOutput();
+            
+            // Format when button is clicked
+            formatBtn.addEventListener('click', updateOutput);
+            
+            // Format as the user types
+            inputText.addEventListener('input', updateOutput);
+            
+            function updateOutput() {
+                const text = inputText.value;
+                if (window.hashtagFormatter) {
+                    const formattedText = window.hashtagFormatter.formatTextWithHashtags(text);
+                    outputDiv.innerHTML = formattedText;
+                } else {
+                    outputDiv.textContent = 'Hashtag formatter not loaded!';
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác thực thất bại</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 15px 0;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .warning {
+            background-color: #fcf8e3;
+            border: 1px solid #faebcc;
+            border-radius: 4px;
+            color: #8a6d3b;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        #success-message {
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+        #error-message {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/150x50/3498db/ffffff?text=YourLogo" alt="Logo" class="logo">
+            <h1>Xác thực thất bại</h1>
+            <p>
+                {% if error_message %}
+                    {{ error_message }}
+                {% else %}
+                    Có lỗi xảy ra trong quá trình xác thực. Vui lòng thử lại sau.
+                {% endif %}
+            </p>
+        </div>
+        
+        <div class="warning">
+            <strong>Lưu ý!</strong> Chỉ xác nhận nếu bạn đã đăng ký tài khoản với email này. Việc xác nhận sẽ kích hoạt tài khoản của bạn.
+        </div>
+        
+        <button id="confirm-button" class="btn" onclick="confirmEmail()">Thử lại</button>
+        
+        <div id="success-message">Xác thực email thành công! Bây giờ bạn có thể đăng nhập.</div>
+        <div id="error-message">Có lỗi xảy ra trong quá trình xác thực. Vui lòng thử lại sau.</div>
+        
+        <script>
+            // Lấy token từ URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = window.location.pathname.split('/').pop();
+            
+            function confirmEmail() {
+                document.getElementById('confirm-button').disabled = true;
+                document.getElementById('confirm-button').innerText = 'Đang xác thực...';
+                
+                // Gọi API xác thực
+                fetch(`/api/auth/verify/${token}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Email verified successfully') {
+                        document.getElementById('success-message').style.display = 'block';
+                        document.getElementById('error-message').style.display = 'none';
+                        document.getElementById('confirm-button').style.display = 'none';
+                    } else {
+                        document.getElementById('error-message').style.display = 'block';
+                        document.getElementById('success-message').style.display = 'none';
+                        document.getElementById('confirm-button').disabled = false;
+                        document.getElementById('confirm-button').innerText = 'Thử lại';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('error-message').style.display = 'block';
+                    document.getElementById('success-message').style.display = 'none';
+                    document.getElementById('confirm-button').disabled = false;
+                    document.getElementById('confirm-button').innerText = 'Thử lại';
+                });
+            }
+        </script>
+    </div>
+</body>
+</html> 

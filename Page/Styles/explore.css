@@ -1,0 +1,334 @@
+/* Styles dành riêng cho trang Explore */
+
+/* Container */
+.container {
+    display: grid;
+    grid-template-columns: 280px 1fr 350px;
+    min-height: 100vh;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Main Content */
+.main-content {
+    padding: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Search Section */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 30px;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+}
+
+.search-box i {
+    color: var(--text-light);
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.search-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.filter-btn i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+/* Trending Section */
+.trending-section {
+    margin-top: 25px;
+}
+
+.trending-topics {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.trending-topic {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: var(--radius-sm);
+}
+
+.trending-topic:hover {
+    background-color: var(--secondary-color);
+}
+
+.topic-rank {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    width: 40px;
+    text-align: center;
+}
+
+.topic-details {
+    flex: 1;
+}
+
+.topic-details h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.topic-details p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Suggested Grid */
+.suggested-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.suggested-item {
+    background-color: var(--secondary-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.suggested-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.suggested-media {
+    height: 120px;
+    overflow: hidden;
+}
+
+.suggested-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.suggested-item:hover .suggested-media img {
+    transform: scale(1.05);
+}
+
+.suggested-info {
+    padding: 15px;
+}
+
+.suggested-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.suggested-info p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.follow-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.follow-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.follow-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.follow-btn i {
+    margin-right: 5px;
+    font-size: 0.9rem;
+}
+
+/* Discover Users */
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.user-item {
+    background-color: var(--secondary-color);
+    border-radius: var(--radius-md);
+    padding: 20px 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    border: 3px solid var(--card-bg);
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-info h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.user-info p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.connect-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.connect-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.connect-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.connect-btn i {
+    margin-right: 5px;
+    font-size: 0.9rem;
+}
+
+/* Animation for loading elements */
+.animate__animated {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .container {
+        grid-template-columns: 80px 1fr 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .suggested-grid, .user-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        padding: 15px 10px;
+    }
+    
+    .filter-btn span {
+        display: none;
+    }
+    
+    .filter-btn {
+        padding: 8px;
+    }
+    
+    .filter-btn i {
+        margin-right: 0;
+    }
+    
+    .suggested-grid, .user-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+    
+    .suggested-info h4, .user-info h4 {
+        font-size: 0.85rem;
+    }
+    
+    .follow-btn span, .connect-btn span {
+        font-size: 0.7rem;
+    }
+} 

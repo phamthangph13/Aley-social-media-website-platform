@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác thực Email</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #28a745;
+            color: #ffffff;
+            padding: 12px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .warning {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffcc00;
+            color: #333;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Xác thực Email của Bạn</h1>
+        <p>Chào <strong>{{ username }}</strong>,</p>
+        <p>Cảm ơn bạn đã đăng ký! Để hoàn tất quá trình đăng ký trên <strong>Aley</strong>, vui lòng xác thực email của bạn bằng cách nhấp vào nút bên dưới.</p>
+        <a href="{{ verification_url }}" class="btn">Xác thực Email</a>
+        <div class="warning">
+            ⚠️ Liên kết xác minh này sẽ hết hạn sau <strong>24 giờ</strong>. Nếu bạn không xác thực trong thời gian này, bạn sẽ cần yêu cầu một liên kết mới.
+        </div>
+        <p>Nếu bạn không yêu cầu xác thực email, hãy bỏ qua email này.</p>
+        <div class="footer">
+            <p>Nếu bạn gặp sự cố khi nhấp vào nút trên, hãy sao chép và dán liên kết sau vào trình duyệt của bạn:</p>
+            <p><a href="{{ verification_url }}">{{ verification_url }}</a></p>
+            <p>Trân trọng,<br>Đội ngũ hỗ trợ Aley</p>
+            <p>📢 Theo dõi chúng tôi trên <a href="https://aley.social">Aley</a> để cập nhật tin tức mới nhất!</p>
+        </div>
+    </div>
+</body>
+</html>

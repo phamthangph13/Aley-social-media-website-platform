@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aley - Thông báo</title>
+    <link rel="stylesheet" href="Styles/global.css">
+    <link rel="stylesheet" href="Styles/notifications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Thanh điều hướng - sẽ được load từ sidebar-menu.html -->
+        <div class="sidebar-container"></div>
+
+        <!-- Phần nội dung chính -->
+        <main class="main-content">
+            <div class="notifications-header">
+                <h1>Thông báo</h1>
+                <div class="notifications-actions">
+                    <button class="action-btn" title="Đánh dấu tất cả là đã đọc">
+                        <i class="fas fa-check-double"></i>
+                    </button>
+                    <button class="action-btn" title="Cài đặt thông báo">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="notifications-filter">
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="mentions">Đề cập đến bạn</button>
+                <button class="filter-btn" data-filter="likes">Lượt thích</button>
+                <button class="filter-btn" data-filter="comments">Bình luận</button>
+                <button class="filter-btn" data-filter="followers">Người theo dõi</button>
+            </div>
+
+            <div class="notifications-list">
+                <!-- Thông báo 1 - Chưa đọc -->
+                <div class="notification-card card unread animate__animated animate__fadeIn">
+                    <div class="notification-icon like-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                        </div>
+                        <div class="notification-info">
+                            <p><strong>Trần Thị B</strong> đã thích bài viết của bạn</p>
+                            <p class="notification-excerpt">"Hôm nay thời tiết thật đẹp! 🌞 #cuoituan #hanoi"</p>
+                            <span class="notification-time">15 phút trước</span>
+                        </div>
+                    </div>
+                    <div class="notification-action">
+                        <button class="action-btn" title="Tùy chọn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thông báo 2 - Chưa đọc -->
+                <div class="notification-card card unread animate__animated animate__fadeIn">
+                    <div class="notification-icon comment-icon">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=68" alt="Avatar">
+                        </div>
+                        <div class="notification-info">
+                            <p><strong>Lê Văn C</strong> đã bình luận về bài viết của bạn</p>
+                            <p class="notification-excerpt">"Dự án này trông thật tuyệt vời! Mong được hợp tác với bạn trong tương lai."</p>
+                            <span class="notification-time">45 phút trước</span>
+                        </div>
+                    </div>
+                    <div class="notification-action">
+                        <button class="action-btn" title="Tùy chọn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thông báo 3 - Đã đọc -->
+                <div class="notification-card card animate__animated animate__fadeIn">
+                    <div class="notification-icon follow-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=23" alt="Avatar">
+                        </div>
+                        <div class="notification-info">
+                            <p><strong>Phạm Thị D</strong> đã bắt đầu theo dõi bạn</p>
+                            <span class="notification-time">2 giờ trước</span>
+                        </div>
+                    </div>
+                    <div class="notification-action">
+                        <button class="action-btn" title="Tùy chọn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thông báo 4 - Đã đọc -->
+                <div class="notification-card card animate__animated animate__fadeIn">
+                    <div class="notification-icon mention-icon">
+                        <i class="fas fa-at"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=42" alt="Avatar">
+                        </div>
+                        <div class="notification-info">
+                            <p><strong>Hoàng Văn E</strong> đã đề cập đến bạn trong một bình luận</p>
+                            <p class="notification-excerpt">"@nguyenvana Tôi nghĩ bạn sẽ thích bài viết này!"</p>
+                            <span class="notification-time">5 giờ trước</span>
+                        </div>
+                    </div>
+                    <div class="notification-action">
+                        <button class="action-btn" title="Tùy chọn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thông báo 5 - Đã đọc -->
+                <div class="notification-card card animate__animated animate__fadeIn">
+                    <div class="notification-icon like-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=55" alt="Avatar">
+                        </div>
+                        <div class="notification-info">
+                            <p><strong>Nguyễn Văn F</strong> và <strong>5 người khác</strong> đã thích bài viết của bạn</p>
+                            <p class="notification-excerpt">"Vừa hoàn thành cuốn sách 'Người giàu có nhất thành Babylon'..."</p>
+                            <span class="notification-time">Hôm qua</span>
+                        </div>
+                    </div>
+                    <div class="notification-action">
+                        <button class="action-btn" title="Tùy chọn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thông báo 6 - Đã đọc -->
+                <div class="notification-card card animate__animated animate__fadeIn">
+                    <div class="notification-icon system-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-avatar system-avatar">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="notification-info">
+                            <p><strong>Hệ thống Aley</strong>: Chào mừng bạn đến với Aley! Khám phá ngay các tính năng mới.</p>
+                            <span class="notification-time">2 ngày trước</span>
+                        </div>
+                    </div>
+                    <div class="notification-action">
+                        <button class="action-btn" title="Tùy chọn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Phần bên phải - sẽ được load từ right-sidebar.html -->
+        <div class="right-sidebar-container"></div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="../Scripts/api-service.js"></script>
+    <script src="../Scripts/auth-guard.js"></script>
+    <script src="../Scripts/sidebar-loader.js"></script>
+    <script src="../Scripts/right-sidebar-loader.js"></script>
+    <script src="../Scripts/page-transition.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Xử lý lọc thông báo
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const notifications = document.querySelectorAll('.notification-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Loại bỏ active từ tất cả các nút
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Thêm active cho nút được click
+                    this.classList.add('active');
+                    
+                    // Lấy bộ lọc được chọn
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Hiển thị tất cả thông báo nếu filter là 'all'
+                    if (filter === 'all') {
+                        notifications.forEach(notification => {
+                            notification.style.display = 'flex';
+                            
+                            // Thêm hiệu ứng khi hiển thị lại
+                            notification.classList.add('animate__animated', 'animate__fadeIn');
+                            setTimeout(() => {
+                                notification.classList.remove('animate__animated', 'animate__fadeIn');
+                            }, 1000);
+                        });
+                    } else {
+                        // Hiển thị/ẩn thông báo dựa trên bộ lọc
+                        notifications.forEach(notification => {
+                            const iconClass = notification.querySelector('.notification-icon');
+                            
+                            if (
+                                (filter === 'mentions' && iconClass.classList.contains('mention-icon')) ||
+                                (filter === 'likes' && iconClass.classList.contains('like-icon')) ||
+                                (filter === 'comments' && iconClass.classList.contains('comment-icon')) ||
+                                (filter === 'followers' && iconClass.classList.contains('follow-icon'))
+                            ) {
+                                notification.style.display = 'flex';
+                                
+                                // Thêm hiệu ứng khi hiển thị lại
+                                notification.classList.add('animate__animated', 'animate__fadeIn');
+                                setTimeout(() => {
+                                    notification.classList.remove('animate__animated', 'animate__fadeIn');
+                                }, 1000);
+                            } else {
+                                notification.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Xử lý đánh dấu thông báo là đã đọc
+            const notificationCards = document.querySelectorAll('.notification-card');
+            
+            notificationCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.remove('unread');
+                });
+            });
+            
+            // Xử lý nút đánh dấu tất cả là đã đọc
+            const markAllAsReadBtn = document.querySelector('.notifications-actions .action-btn:first-child');
+            
+            markAllAsReadBtn.addEventListener('click', function() {
+                notificationCards.forEach(card => {
+                    card.classList.remove('unread');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

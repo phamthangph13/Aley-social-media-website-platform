@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aley - Đã lưu</title>
+    <link rel="stylesheet" href="Styles/global.css">
+    <link rel="stylesheet" href="Styles/bookmarks.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script>
+        // Áp dụng theme từ localStorage ngay lập tức
+        (function() {
+            const savedTheme = localStorage.getItem('preferred-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            console.log('Applied theme:', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Thanh điều hướng - sẽ được load từ sidebar-menu.html -->
+        <div class="sidebar-container"></div>
+
+        <!-- Phần nội dung chính -->
+        <main class="main-content">
+            <div class="bookmarks-layout">
+                <!-- Header -->
+                <div class="bookmarks-header">
+                    <h1>Đã lưu</h1>
+                    <div class="bookmarks-actions">
+                        <button class="action-btn" title="Tạo bộ sưu tập mới">
+                            <i class="fas fa-folder-plus"></i>
+                        </button>
+                        <button class="action-btn" title="Cài đặt">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Thanh tìm kiếm -->
+                <div class="search-container">
+                    <div class="search-input">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Tìm kiếm trong mục đã lưu...">
+                    </div>
+                </div>
+
+                <!-- Bộ lọc / Tab -->
+                <div class="bookmarks-filter">
+                    <button class="filter-btn active" data-filter="all">Tất cả</button>
+                    <button class="filter-btn" data-filter="collections">Bộ sưu tập</button>
+                    <button class="filter-btn" data-filter="posts">Bài viết</button>
+                    <button class="filter-btn" data-filter="media">Hình ảnh & Video</button>
+                    <button class="filter-btn" data-filter="articles">Bài báo</button>
+                </div>
+
+                <!-- Nội dung đã lưu -->
+                <div class="bookmarks-content">
+                    <!-- Bài viết đã lưu -->
+                    <div class="bookmarks-section">
+                        <div class="section-header">
+                            <h2>Bài viết gần đây</h2>
+                            <a href="#" class="view-all">Xem tất cả</a>
+                        </div>
+                        
+                        <div class="bookmarks-grid">
+                            <!-- Bài viết đã lưu 1 -->
+                            <div class="bookmark-card">
+                                <div class="card-header">
+                                    <div class="user-info">
+                                        <img src="https://i.pravatar.cc/150?img=3" alt="Avatar" class="user-avatar">
+                                        <div class="user-meta">
+                                            <p class="user-name">Nguyễn Văn Bình</p>
+                                            <p class="post-time">2 giờ trước</p>
+                                        </div>
+                                    </div>
+                                    <div class="bookmark-actions">
+                                        <button class="action-btn" title="Bỏ lưu">
+                                            <i class="fas fa-bookmark"></i>
+                                        </button>
+                                        <button class="action-btn" title="Thêm vào bộ sưu tập">
+                                            <i class="fas fa-folder-plus"></i>
+                                        </button>
+                                        <button class="action-btn" title="Chia sẻ">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <p class="post-text">Hôm nay thời tiết thật đẹp, tôi vừa tìm thấy một quán cà phê nhỏ đáng yêu ở phố cổ. Không gian yên tĩnh và đồ uống rất ngon!</p>
+                                    <div class="post-image">
+                                        <img src="https://source.unsplash.com/random/600x400/?cafe,coffee" alt="Hình ảnh quán cà phê">
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="interaction-stats">
+                                        <span><i class="far fa-heart"></i> 120</span>
+                                        <span><i class="far fa-comment"></i> 14</span>
+                                        <span><i class="far fa-bookmark"></i> 25</span>
+                                    </div>
+                                    <div class="save-date">
+                                        <span>Đã lưu: 06/05/2023</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bài viết đã lưu 2 -->
+                            <div class="bookmark-card">
+                                <div class="card-header">
+                                    <div class="user-info">
+                                        <img src="https://i.pravatar.cc/150?img=5" alt="Avatar" class="user-avatar">
+                                        <div class="user-meta">
+                                            <p class="user-name">Trần Minh Châu</p>
+                                            <p class="post-time">1 ngày trước</p>
+                                        </div>
+                                    </div>
+                                    <div class="bookmark-actions">
+                                        <button class="action-btn" title="Bỏ lưu">
+                                            <i class="fas fa-bookmark"></i>
+                                        </button>
+                                        <button class="action-btn" title="Thêm vào bộ sưu tập">
+                                            <i class="fas fa-folder-plus"></i>
+                                        </button>
+                                        <button class="action-btn" title="Chia sẻ">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <p class="post-text">Vừa hoàn thành khóa học lập trình web! Đây là dự án cuối khóa của mình, mọi người góp ý giúp mình nhé.</p>
+                                    <div class="post-grid-images">
+                                        <img src="https://source.unsplash.com/random/400x300/?webdesign" alt="Hình ảnh thiết kế web">
+                                        <img src="https://source.unsplash.com/random/400x300/?coding" alt="Hình ảnh mã nguồn">
+                                        <img src="https://source.unsplash.com/random/400x300/?website" alt="Hình ảnh website">
+                                        <img src="https://source.unsplash.com/random/400x300/?programming" alt="Hình ảnh lập trình">
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="interaction-stats">
+                                        <span><i class="far fa-heart"></i> 89</span>
+                                        <span><i class="far fa-comment"></i> 32</span>
+                                        <span><i class="far fa-bookmark"></i> 17</span>
+                                    </div>
+                                    <div class="save-date">
+                                        <span>Đã lưu: 02/05/2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bộ sưu tập -->
+                    <div class="bookmarks-section">
+                        <div class="section-header">
+                            <h2>Bộ sưu tập của bạn</h2>
+                            <a href="#" class="view-all">Xem tất cả</a>
+                        </div>
+                        
+                        <div class="collections-grid">
+                            <!-- Bộ sưu tập 1 -->
+                            <div class="collection-card">
+                                <div class="collection-preview">
+                                    <img src="https://source.unsplash.com/random/300x200/?travel" alt="Du lịch">
+                                    <div class="collection-overlay">
+                                        <span class="collection-count"><i class="fas fa-bookmark"></i> 24 mục</span>
+                                    </div>
+                                </div>
+                                <div class="collection-info">
+                                    <h3>Du lịch</h3>
+                                    <p>Những địa điểm du lịch đáng đến một lần trong đời</p>
+                                </div>
+                            </div>
+
+                            <!-- Bộ sưu tập 2 -->
+                            <div class="collection-card">
+                                <div class="collection-preview">
+                                    <img src="https://source.unsplash.com/random/300x200/?food" alt="Ẩm thực">
+                                    <div class="collection-overlay">
+                                        <span class="collection-count"><i class="fas fa-bookmark"></i> 18 mục</span>
+                                    </div>
+                                </div>
+                                <div class="collection-info">
+                                    <h3>Ẩm thực</h3>
+                                    <p>Các món ăn ngon và công thức nấu ăn</p>
+                                </div>
+                            </div>
+
+                            <!-- Bộ sưu tập 3 -->
+                            <div class="collection-card">
+                                <div class="collection-preview">
+                                    <img src="https://source.unsplash.com/random/300x200/?technology" alt="Công nghệ">
+                                    <div class="collection-overlay">
+                                        <span class="collection-count"><i class="fas fa-bookmark"></i> 12 mục</span>
+                                    </div>
+                                </div>
+                                <div class="collection-info">
+                                    <h3>Công nghệ</h3>
+                                    <p>Tin tức công nghệ mới nhất và gadget</p>
+                                </div>
+                            </div>
+
+                            <!-- Bộ sưu tập 4 -->
+                            <div class="collection-card">
+                                <div class="collection-preview">
+                                    <img src="https://source.unsplash.com/random/300x200/?motivation" alt="Động lực">
+                                    <div class="collection-overlay">
+                                        <span class="collection-count"><i class="fas fa-bookmark"></i> 9 mục</span>
+                                    </div>
+                                </div>
+                                <div class="collection-info">
+                                    <h3>Động lực</h3>
+                                    <p>Những câu nói truyền cảm hứng</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hình ảnh & Video -->
+                    <div class="bookmarks-section">
+                        <div class="section-header">
+                            <h2>Hình ảnh & Video</h2>
+                            <a href="#" class="view-all">Xem tất cả</a>
+                        </div>
+                        
+                        <div class="media-grid">
+                            <div class="media-item">
+                                <img src="https://source.unsplash.com/random/300x300/?nature" alt="Thiên nhiên">
+                                <div class="media-overlay">
+                                    <button class="action-btn" title="Bỏ lưu">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="https://source.unsplash.com/random/300x300/?city" alt="Thành phố">
+                                <div class="media-overlay">
+                                    <button class="action-btn" title="Bỏ lưu">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="media-item video-item">
+                                <img src="https://source.unsplash.com/random/300x300/?concert" alt="Buổi hòa nhạc">
+                                <div class="media-overlay">
+                                    <i class="fas fa-play-circle video-icon"></i>
+                                    <button class="action-btn" title="Bỏ lưu">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="https://source.unsplash.com/random/300x300/?art" alt="Nghệ thuật">
+                                <div class="media-overlay">
+                                    <button class="action-btn" title="Bỏ lưu">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="media-item video-item">
+                                <img src="https://source.unsplash.com/random/300x300/?dance" alt="Khiêu vũ">
+                                <div class="media-overlay">
+                                    <i class="fas fa-play-circle video-icon"></i>
+                                    <button class="action-btn" title="Bỏ lưu">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="media-item">
+                                <img src="https://source.unsplash.com/random/300x300/?landscape" alt="Phong cảnh">
+                                <div class="media-overlay">
+                                    <button class="action-btn" title="Bỏ lưu">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bài báo đã lưu -->
+                    <div class="bookmarks-section">
+                        <div class="section-header">
+                            <h2>Bài báo & Tin tức</h2>
+                            <a href="#" class="view-all">Xem tất cả</a>
+                        </div>
+                        
+                        <div class="articles-list">
+                            <div class="article-card">
+                                <div class="article-image">
+                                    <img src="https://source.unsplash.com/random/400x200/?news" alt="Tin tức">
+                                </div>
+                                <div class="article-content">
+                                    <h3>10 xu hướng công nghệ hàng đầu trong năm 2023</h3>
+                                    <p class="article-source">Tech News • 28/04/2023</p>
+                                    <p class="article-excerpt">Trí tuệ nhân tạo, điện toán lượng tử và Internet vạn vật đang định hình lại cách chúng ta tương tác với công nghệ...</p>
+                                    <div class="article-actions">
+                                        <button class="action-btn" title="Bỏ lưu">
+                                            <i class="fas fa-bookmark"></i>
+                                        </button>
+                                        <button class="action-btn" title="Chia sẻ">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="article-card">
+                                <div class="article-image">
+                                    <img src="https://source.unsplash.com/random/400x200/?health" alt="Sức khỏe">
+                                </div>
+                                <div class="article-content">
+                                    <h3>5 thói quen giúp cải thiện sức khỏe tinh thần</h3>
+                                    <p class="article-source">Health Magazine • 25/04/2023</p>
+                                    <p class="article-excerpt">Thiền định, tập thể dục đều đặn và duy trì mối quan hệ xã hội là những cách hiệu quả để cải thiện sức khỏe tinh thần...</p>
+                                    <div class="article-actions">
+                                        <button class="action-btn" title="Bỏ lưu">
+                                            <i class="fas fa-bookmark"></i>
+                                        </button>
+                                        <button class="action-btn" title="Chia sẻ">
+                                            <i class="fas fa-share-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Phần bên phải - sẽ được load từ right-sidebar.html -->
+        <div class="right-sidebar-container"></div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="../Scripts/api-service.js"></script>
+    <script src="../Scripts/auth-guard.js"></script>
+    <script src="../Scripts/page-transition.js"></script>
+    <script>
+        // Log để debug
+        console.log('Bookmarks page script loaded');
+        
+        // Tự tải sidebar-menu và right-sidebar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM content loaded in bookmarks.html');
+            
+            // Tải nội dung sidebar
+            loadSidebar();
+            
+            // Tải nội dung right sidebar
+            loadRightSidebar();
+            
+            // Thiết lập bộ lọc
+            setupFilterButtons();
+            
+            // Thiết lập sự kiện bỏ lưu
+            setupBookmarkActions();
+            
+            // Thiết lập hiệu ứng hover cho media items
+            setupMediaItems();
+        });
+        
+        // Hàm tải sidebar
+        function loadSidebar() {
+            const sidebarContainer = document.querySelector('.sidebar-container');
+            if (sidebarContainer) {
+                fetch('sidebar-menu.html')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(html => {
+                        sidebarContainer.innerHTML = html;
+                        console.log('Sidebar loaded successfully');
+                        
+                        // Đánh dấu menu "Đã lưu" là active sau khi tải sidebar
+                        setTimeout(function() {
+                            console.log('Attempting to mark bookmarks menu as active');
+                            const bookmarksMenuItem = document.querySelector('.sidebar-menu li[data-page="bookmarks"]');
+                            if (bookmarksMenuItem) {
+                                console.log('Found bookmarks menu item, marking as active');
+                                // Xóa active từ tất cả các menu item
+                                const allMenuItems = document.querySelectorAll('.sidebar-menu li');
+                                allMenuItems.forEach(item => {
+                                    item.classList.remove('active');
+                                });
+                                
+                                // Thêm active cho menu bookmarks
+                                bookmarksMenuItem.classList.add('active');
+                            } else {
+                                console.log('Could not find bookmarks menu item');
+                            }
+                        }, 100);
+                        
+                        // Khởi tạo các chức năng sidebar
+                        initSidebar();
+                    })
+                    .catch(error => {
+                        console.error('Error loading sidebar:', error);
+                    });
+            }
+        }
+        
+        // Hàm tải right sidebar
+        function loadRightSidebar() {
+            const rightSidebarContainer = document.querySelector('.right-sidebar-container');
+            if (rightSidebarContainer) {
+                fetch('right-sidebar.html')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(html => {
+                        rightSidebarContainer.innerHTML = html;
+                        console.log('Right sidebar loaded successfully');
+                        
+                        // Khởi tạo các chức năng right sidebar
+                        initRightSidebar();
+                    })
+                    .catch(error => {
+                        console.error('Error loading right sidebar:', error);
+                    });
+            }
+        }
+        
+        // Hàm khởi tạo sidebar (sao chép từ sidebar-loader.js)
+        function initSidebar() {
+            // Thiết lập hover effect cho menu items
+            const menuItems = document.querySelectorAll('.sidebar-menu li');
+            
+            menuItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    if (window.innerWidth > 768) {
+                        this.classList.add('hovered');
+                    }
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.classList.remove('hovered');
+                });
+                
+                // Xử lý click event
+                item.addEventListener('click', function() {
+                    menuItems.forEach(mi => mi.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Thiết lập theme toggle
+            const themeButtons = document.querySelectorAll('.theme-btn');
+            const themeIndicator = document.querySelector('.theme-indicator');
+            const html = document.documentElement;
+            
+            // Lấy theme hiện tại từ HTML (đã được thiết lập ngay từ đầu)
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            console.log('Current theme when initializing sidebar:', currentTheme);
+            
+            // Chỉ cập nhật UI của theme buttons, không thay đổi theme
+            updateThemeUI(currentTheme);
+            
+            themeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const theme = this.getAttribute('data-theme');
+                    setTheme(theme);
+                    
+                    // Lưu theme vào localStorage
+                    localStorage.setItem('preferred-theme', theme);
+                });
+            });
+            
+            function setTheme(theme) {
+                html.setAttribute('data-theme', theme);
+                updateThemeUI(theme);
+            }
+            
+            function updateThemeUI(theme) {
+                themeButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-theme') === theme) {
+                        btn.classList.add('active');
+                        
+                        // Di chuyển indicator nếu tồn tại
+                        if (themeIndicator) {
+                            const buttonRect = btn.getBoundingClientRect();
+                            const containerRect = btn.parentElement.getBoundingClientRect();
+                            
+                            themeIndicator.style.left = (buttonRect.left - containerRect.left) + 'px';
+                            themeIndicator.style.top = (buttonRect.top - containerRect.top) + 'px';
+                            themeIndicator.style.width = buttonRect.width + 'px';
+                            themeIndicator.style.height = buttonRect.height + 'px';
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Hàm khởi tạo right sidebar (sao chép từ right-sidebar-loader.js)
+        function initRightSidebar() {
+            // Xử lý nút đóng/mở right sidebar
+            const toggleRightSidebarBtn = document.querySelector('.toggle-right-sidebar');
+            const rightSidebarContainer = document.querySelector('.right-sidebar-container');
+            
+            if (toggleRightSidebarBtn && rightSidebarContainer) {
+                toggleRightSidebarBtn.addEventListener('click', function() {
+                    rightSidebarContainer.classList.toggle('collapsed');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Xử lý các notification items
+            const notificationItems = document.querySelectorAll('.notification-item');
+            
+            notificationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('expanded');
+                });
+            });
+            
+            // Xử lý trending topics
+            const trendingTopics = document.querySelectorAll('.trending-topic');
+            
+            trendingTopics.forEach(topic => {
+                topic.addEventListener('click', function() {
+                    trendingTopics.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        }
+        
+        function setupFilterButtons() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Loại bỏ active từ tất cả các nút
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Thêm active cho nút được click
+                    this.classList.add('active');
+                    
+                    // Thêm logic lọc thực tế ở đây (trong ứng dụng thực tế)
+                    const filter = this.getAttribute('data-filter');
+                    console.log(`Đã chọn bộ lọc: ${filter}`);
+                    
+                    // Mô phỏng lọc nội dung
+                    if (filter === 'collections') {
+                        // Chỉ hiện bộ sưu tập
+                        showOnlySection('Bộ sưu tập của bạn');
+                    } else if (filter === 'posts') {
+                        // Chỉ hiện bài viết
+                        showOnlySection('Bài viết gần đây');
+                    } else if (filter === 'media') {
+                        // Chỉ hiện hình ảnh và video
+                        showOnlySection('Hình ảnh & Video');
+                    } else if (filter === 'articles') {
+                        // Chỉ hiện bài báo
+                        showOnlySection('Bài báo & Tin tức');
+                    } else {
+                        // Hiện tất cả
+                        showAllSections();
+                    }
+                });
+            });
+        }
+        
+        function showOnlySection(sectionTitle) {
+            const sections = document.querySelectorAll('.bookmarks-section');
+            
+            sections.forEach(section => {
+                const header = section.querySelector('h2');
+                if (header && header.textContent === sectionTitle) {
+                    section.style.display = 'block';
+                    // Thêm hiệu ứng
+                    section.classList.add('animate__animated', 'animate__fadeIn');
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+        
+        function showAllSections() {
+            const sections = document.querySelectorAll('.bookmarks-section');
+            
+            sections.forEach(section => {
+                section.style.display = 'block';
+                // Thêm hiệu ứng
+                section.classList.add('animate__animated', 'animate__fadeIn');
+            });
+        }
+        
+        function setupBookmarkActions() {
+            const bookmarkButtons = document.querySelectorAll('.bookmark-actions .action-btn[title="Bỏ lưu"]');
+            
+            bookmarkButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Lấy thẻ bookmark-card gần nhất
+                    const card = this.closest('.bookmark-card');
+                    
+                    if (card) {
+                        // Thêm hiệu ứng biến mất
+                        card.classList.add('animate__animated', 'animate__fadeOut');
+                        
+                        // Sau khi hiệu ứng hoàn thành, ẩn thẻ
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 500);
+                    }
+                });
+            });
+            
+            // Xử lý cho media items
+            const mediaBookmarkButtons = document.querySelectorAll('.media-overlay .action-btn');
+            
+            mediaBookmarkButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Ngăn event bubble lên parent
+                    
+                    // Lấy thẻ media-item gần nhất
+                    const item = this.closest('.media-item');
+                    
+                    if (item) {
+                        // Thêm hiệu ứng biến mất
+                        item.classList.add('animate__animated', 'animate__fadeOut');
+                        
+                        // Sau khi hiệu ứng hoàn thành, ẩn thẻ
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 500);
+                    }
+                });
+            });
+            
+            // Xử lý cho article cards
+            const articleBookmarkButtons = document.querySelectorAll('.article-actions .action-btn[title="Bỏ lưu"]');
+            
+            articleBookmarkButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Lấy thẻ article-card gần nhất
+                    const card = this.closest('.article-card');
+                    
+                    if (card) {
+                        // Thêm hiệu ứng biến mất
+                        card.classList.add('animate__animated', 'animate__fadeOut');
+                        
+                        // Sau khi hiệu ứng hoàn thành, ẩn thẻ
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 500);
+                    }
+                });
+            });
+        }
+        
+        function setupMediaItems() {
+            const mediaItems = document.querySelectorAll('.media-item');
+            
+            mediaItems.forEach(item => {
+                // Xử lý khi click vào video
+                if (item.classList.contains('video-item')) {
+                    item.addEventListener('click', function() {
+                        // Mô phỏng phát video
+                        console.log('Đang phát video...');
+                        // Trong ứng dụng thực tế sẽ hiển thị video modal hoặc player
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html> 
