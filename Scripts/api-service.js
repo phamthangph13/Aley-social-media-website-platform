@@ -36,7 +36,7 @@
 
 const AleyAPI = {
     // Base URL for API calls - force HTTPS
-    baseUrl: 'https://website-social-media-aley-back-end.onrender.com',
+    baseUrl: 'https://aley-social-media-website-platform.onrender.com',
     
     // Utility methods
     _handleResponse: async function(response) {
@@ -321,7 +321,7 @@ const AleyAPI = {
  */
 const postService = {
     // Sử dụng baseUrl từ AleyAPI nếu tồn tại, ngược lại sử dụng mặc định
-    baseUrl: (typeof AleyAPI !== 'undefined') ? AleyAPI.baseUrl : 'https://website-social-media-aley-back-end.onrender.com',
+    baseUrl: (typeof AleyAPI !== 'undefined') ? AleyAPI.baseUrl : 'https://aley-social-media-website-platform.onrender.com ',
     
     /**
      * Utility function to handle API response and check for token expiration
@@ -660,7 +660,7 @@ const postService = {
  */
 const friendService = {
     // Sử dụng baseUrl từ AleyAPI
-    baseUrl: (typeof AleyAPI !== 'undefined') ? AleyAPI.baseUrl : 'https://website-social-media-aley-back-end.onrender.com',
+    baseUrl: (typeof AleyAPI !== 'undefined') ? AleyAPI.baseUrl : 'https://aley-social-media-website-platform.onrender.com ',
     
     /**
      * Lấy danh sách gợi ý kết bạn (những người chưa kết bạn)

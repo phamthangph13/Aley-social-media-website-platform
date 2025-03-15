@@ -47,7 +47,7 @@ def create_app():
         'http://localhost:5000',
         'https://localhost:5000',
         # Thêm domain của bạn khi triển khai
-        'https://website-social-media-aley-back-end.onrender.com',
+        'https://aley-social-media-website-platform.onrender.com ',
         # Có thể thêm các subdomain nếu cần
         'https://*.website-social-media-aley-back-end.onrender.com'
     ]

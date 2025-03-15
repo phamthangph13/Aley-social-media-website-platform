@@ -96,7 +96,7 @@ class UserAvatarManager {
             return avatar;
         } else {
             // Nếu không phải URL, giả định đây là image_id và tạo URL đến API
-            const apiBaseUrl = AleyAPI ? AleyAPI.baseUrl : 'https://website-social-media-aley-back-end.onrender.com';
+            const apiBaseUrl = AleyAPI ? AleyAPI.baseUrl : 'https://aley-social-media-website-platform.onrender.com ';
             return `${apiBaseUrl}/users/image/${avatar}`;
         }
     }

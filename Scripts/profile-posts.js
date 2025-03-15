@@ -405,7 +405,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return avatar;
         } else {
             // Nếu không phải URL, giả định đây là image_id và tạo URL đến API
-            return `${apiService.baseUrl || 'https://website-social-media-aley-back-end.onrender.com'}/users/image/${avatar}`;
+            return `${apiService.baseUrl || 'https://aley-social-media-website-platform.onrender.com '}/users/image/${avatar}`;
         }
     }
 }); 
